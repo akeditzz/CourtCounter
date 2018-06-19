@@ -10,178 +10,219 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/basketball_bg" />
+        android:src="@drawable/tennis" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_bg" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:weightSum="3">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:background="@color/teambg"
+                        android:padding="8dp"
+                        android:text="@string/team_a_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize_14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_teama_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_24dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/text_label_0"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize_56sp" />
+
+                    <TextView
+                        android:id="@+id/tv_fauls_A"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:text="@string/fauls_0"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btn_plus15_A"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:layout_marginEnd="@dimen/dimen_24dp"
+                        android:layout_marginStart="@dimen/dimen_24dp"
+                        android:background="@drawable/btn_bg"
+                        android:clickable="true"
+                        android:drawableStart="@drawable/ic_tennis_service"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:text="@string/label_15_points"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btn_plus10_A"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:layout_marginEnd="@dimen/dimen_24dp"
+                        android:layout_marginStart="@dimen/dimen_24dp"
+                        android:background="@drawable/btn_bg"
+                        android:clickable="true"
+                        android:drawableStart="@drawable/ic_tennis_play"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:text="@string/label_10_points"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btn_faul_A"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_8dp"
+                        android:layout_marginEnd="@dimen/dimen_24dp"
+                        android:layout_marginStart="@dimen/dimen_24dp"
+                        android:background="@drawable/btn_bg"
+                        android:clickable="true"
+                        android:drawableStart="@drawable/ic_warning"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:text="@string/label_faul"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:background="@android:color/white" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:background="@color/teambg"
+                        android:padding="8dp"
+                        android:text="@string/team_b_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize_14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_teamb_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_24dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/text_label_0"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textsize_56sp" />
+
+                    <TextView
+                        android:id="@+id/tv_fauls_B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:text="@string/fauls_0"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btn_plus15_B"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:layout_marginEnd="@dimen/dimen_24dp"
+                        android:layout_marginStart="@dimen/dimen_24dp"
+                        android:background="@drawable/btn_bg"
+                        android:clickable="true"
+                        android:drawableStart="@drawable/ic_tennis_service"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:text="@string/label_15_points"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btn_plus10_B"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_16dp"
+                        android:layout_marginEnd="@dimen/dimen_24dp"
+                        android:layout_marginStart="@dimen/dimen_24dp"
+                        android:background="@drawable/btn_bg"
+                        android:clickable="true"
+                        android:drawableStart="@drawable/ic_tennis_play"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:text="@string/label_10_points"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btn_faul_B"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_8dp"
+                        android:layout_marginEnd="@dimen/dimen_24dp"
+                        android:layout_marginStart="@dimen/dimen_24dp"
+                        android:background="@drawable/btn_bg"
+                        android:clickable="true"
+                        android:drawableStart="@drawable/ic_warning"
+                        android:focusable="true"
+                        android:onClick="onClick"
+                        android:text="@string/label_faul"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_16dp"
-                android:layout_marginTop="@dimen/dimen_16dp"
-                android:background="@color/teambg"
-                android:padding="8dp"
-                android:text="@string/team_a_label"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/textsize_14sp" />
-
-            <TextView
-                android:id="@+id/tv_teama_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_24dp"
-                android:fontFamily="sans-serif-light"
-                android:text="@string/text_label_0"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/textsize_56sp" />
-
-            <Button
-                android:id="@+id/btn_plus3_A"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_16dp"
-                android:layout_marginEnd="@dimen/dimen_24dp"
-                android:layout_marginStart="@dimen/dimen_24dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/dimen_32dp"
                 android:background="@drawable/btn_bg"
-                android:onClick="onClick"
                 android:clickable="true"
+                android:drawablePadding="@dimen/dimen_16dp"
+                android:drawableStart="@drawable/ic_refresh"
                 android:focusable="true"
-                android:text="@string/_3_points_label"
-                 />
-
-            <Button
-                android:id="@+id/btn_plus2_A"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_16dp"
-                android:layout_marginEnd="@dimen/dimen_24dp"
-                android:layout_marginStart="@dimen/dimen_24dp"
-                android:background="@drawable/btn_bg"
                 android:onClick="onClick"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/_2_points_label" />
+                android:text="@string/reset_label"
+                android:textColor="@android:color/white" />
 
-            <Button
-                android:id="@+id/btn_freethrow_A"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:layout_marginEnd="@dimen/dimen_24dp"
-                android:layout_marginStart="@dimen/dimen_24dp"
-                android:background="@drawable/btn_bg"
-                android:onClick="onClick"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/free_throw_label" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="@dimen/dimen_1dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimen_16dp"
-            android:background="@android:color/white" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_16dp"
-                android:layout_marginTop="@dimen/dimen_16dp"
-                android:background="@color/teambg"
-                android:padding="8dp"
-                android:text="@string/team_b_label"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/textsize_14sp" />
-
-            <TextView
-                android:id="@+id/tv_teamb_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_24dp"
-                android:fontFamily="sans-serif-light"
-                android:text="@string/text_label_0"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/textsize_56sp" />
-
-            <Button
-                android:id="@+id/btn_plus3_B"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_16dp"
-                android:layout_marginEnd="@dimen/dimen_24dp"
-                android:layout_marginStart="@dimen/dimen_24dp"
-                android:background="@drawable/btn_bg"
-                android:onClick="onClick"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/_3_points_label" />
-
-            <Button
-                android:id="@+id/btn_plus2_B"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_16dp"
-                android:layout_marginEnd="@dimen/dimen_24dp"
-                android:layout_marginStart="@dimen/dimen_24dp"
-                android:background="@drawable/btn_bg"
-                android:onClick="onClick"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/_2_points_label" />
-
-            <Button
-                android:id="@+id/btn_freethrow_B"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:layout_marginEnd="@dimen/dimen_24dp"
-                android:layout_marginStart="@dimen/dimen_24dp"
-                android:background="@drawable/btn_bg"
-                android:onClick="onClick"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/free_throw_label" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/btn_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/dimen_32dp"
-        android:background="@drawable/btn_bg"
-        android:onClick="onClick"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="@string/reset_label" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
