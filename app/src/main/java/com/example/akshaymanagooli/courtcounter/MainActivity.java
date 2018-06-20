@@ -14,6 +14,11 @@ public class MainActivity extends AppCompatActivity implements Constants {
     private TextView tv_point_team_a, tv_point_team_b, tv_fauls_team_a, tv_fauls_team_b;
     private int scoreTeamA = 0, scoreTeamB = 0;
     private int faulsTeamA = 0, faulsTeamB = 0;
+    boolean isFaulA = false, isFaulB = false;
+    private boolean advanceTeamA = false;
+    private boolean advanceTeamB = false;
+    private boolean teamAWin = false;
+    private boolean teamBWin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,18 +75,14 @@ public class MainActivity extends AppCompatActivity implements Constants {
      * method to increase score by 15
      */
     private void increasePointsByFifteen(String team) {
-
         switch (team) {
             case LABEL_A:
-                scoreTeamA += 15;
-                displayScore(LABEL_A);
+                addScoreToTeamA(15);
                 break;
             case LABEL_B:
-                scoreTeamB += 15;
-                displayScore(LABEL_B);
+                addScoreToTeamB(15);
                 break;
         }
-
     }
 
     /**
@@ -90,18 +91,14 @@ public class MainActivity extends AppCompatActivity implements Constants {
      * method to increase score by 10
      */
     private void increasePointsByTen(String team) {
-
         switch (team) {
             case LABEL_A:
-                scoreTeamA += 10;
-                displayScore(LABEL_A);
+                addScoreToTeamA(10);
                 break;
             case LABEL_B:
-                scoreTeamB += 10;
-                displayScore(LABEL_B);
+                addScoreToTeamB(10);
                 break;
         }
-
     }
 
     /**
@@ -110,26 +107,68 @@ public class MainActivity extends AppCompatActivity implements Constants {
      * method to update fauls and scores according to fauls
      */
     private void faul(String team) {
-
         switch (team) {
             case LABEL_A:
                 faulsTeamA += 1;
-                if (faulsTeamA % 2 == 0) {
-                    scoreTeamB += 10;
-                    displayScore(LABEL_B);
+                if (isFaulA) {
+                    addScoreToTeamB(10);
+                    isFaulA = false;
                 }
+                isFaulA = true;
+                isFaulB = false;
                 displayFauls(LABEL_A);
                 break;
             case LABEL_B:
                 faulsTeamB += 1;
-                if (faulsTeamB % 2 == 0) {
-                    scoreTeamA += 10;
-                    displayScore(LABEL_A);
+                if (isFaulB) {
+                    addScoreToTeamA(10);
+                    isFaulB = false;
                 }
+                isFaulB = true;
+                isFaulA = false;
                 displayFauls(LABEL_B);
                 break;
         }
+    }
 
+    /**
+     * @param score int to be added
+     * @author Akshay
+     * method to add score to team a
+     */
+    private void addScoreToTeamA(int score) {
+        if (advanceTeamA) {
+            teamAWin = true;
+            advanceTeamA = false;
+        } else if (scoreTeamA == 40) {
+            advanceTeamA = true;
+        } else {
+            scoreTeamA += score;
+            if (scoreTeamA > 40) {
+                scoreTeamA = 40;
+            }
+        }
+        displayScore(LABEL_A);
+    }
+
+    /**
+     * @param score int to be added
+     * @author Akshay
+     * method to add score to team b
+     */
+    private void addScoreToTeamB(int score) {
+        if (advanceTeamB) {
+            teamBWin = true;
+            advanceTeamB = false;
+        } else if (scoreTeamB == 40) {
+            advanceTeamB = true;
+        } else {
+            scoreTeamB += score;
+            if (scoreTeamB > 40) {
+                scoreTeamB = 40;
+            }
+        }
+        displayScore(LABEL_B);
     }
 
     /**
@@ -141,6 +180,12 @@ public class MainActivity extends AppCompatActivity implements Constants {
         scoreTeamB = 0;
         faulsTeamA = 0;
         faulsTeamB = 0;
+        isFaulB = false;
+        isFaulA = false;
+        advanceTeamA = false;
+        advanceTeamB = false;
+        teamAWin = false;
+        teamBWin = false;
         displayScore(LABEL_A);
         displayScore(LABEL_B);
         displayFauls(LABEL_A);
@@ -155,26 +200,32 @@ public class MainActivity extends AppCompatActivity implements Constants {
     private void displayScore(String team) {
         switch (team) {
             case LABEL_A:
-                if (scoreTeamA == 50) {
+                isFaulB = false;
+                isFaulA = false;
+                if (advanceTeamA) {
                     tv_point_team_a.setText(LABEL_AD);
-                    if (tv_point_team_b.getText().toString().equals(LABEL_AD)) {
+                    if (advanceTeamB) {
+                        advanceTeamB = false;
                         scoreTeamB = 40;
                         tv_point_team_b.setText(String.valueOf(scoreTeamB));
                     }
-                } else if (scoreTeamA == 60) {
+                } else if (teamAWin) {
                     showAlertDialog(LABEL_A);
                 } else {
                     tv_point_team_a.setText(String.valueOf(scoreTeamA));
                 }
                 break;
             case LABEL_B:
-                if (scoreTeamB == 50) {
+                isFaulB = false;
+                isFaulA = false;
+                if (advanceTeamB) {
                     tv_point_team_b.setText(LABEL_AD);
-                    if (tv_point_team_a.getText().toString().equals(LABEL_AD)) {
+                    if (advanceTeamA) {
+                        advanceTeamA = false;
                         scoreTeamA = 40;
                         tv_point_team_a.setText(String.valueOf(scoreTeamA));
                     }
-                } else if (scoreTeamB == 60) {
+                } else if (teamBWin) {
                     showAlertDialog(LABEL_B);
                 } else {
                     tv_point_team_b.setText(String.valueOf(scoreTeamB));

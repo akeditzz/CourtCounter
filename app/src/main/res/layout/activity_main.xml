@@ -80,6 +80,7 @@
                         android:clickable="true"
                         android:drawableStart="@drawable/ic_tennis_service"
                         android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:onClick="onClick"
                         android:text="@string/label_15_points"
                         android:textColor="@android:color/white" />
@@ -95,6 +96,7 @@
                         android:clickable="true"
                         android:drawableStart="@drawable/ic_tennis_play"
                         android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:onClick="onClick"
                         android:text="@string/label_10_points"
                         android:textColor="@android:color/white" />
@@ -110,6 +112,7 @@
                         android:clickable="true"
                         android:drawableStart="@drawable/ic_warning"
                         android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:onClick="onClick"
                         android:text="@string/label_faul"
                         android:textColor="@android:color/white" />
@@ -169,6 +172,7 @@
                         android:clickable="true"
                         android:drawableStart="@drawable/ic_tennis_service"
                         android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:onClick="onClick"
                         android:text="@string/label_15_points"
                         android:textColor="@android:color/white" />
@@ -184,6 +188,7 @@
                         android:clickable="true"
                         android:drawableStart="@drawable/ic_tennis_play"
                         android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:onClick="onClick"
                         android:text="@string/label_10_points"
                         android:textColor="@android:color/white" />
@@ -199,6 +204,7 @@
                         android:clickable="true"
                         android:drawableStart="@drawable/ic_warning"
                         android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:onClick="onClick"
                         android:text="@string/label_faul"
                         android:textColor="@android:color/white" />
@@ -218,6 +224,7 @@
                 android:drawablePadding="@dimen/dimen_16dp"
                 android:drawableStart="@drawable/ic_refresh"
                 android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:onClick="onClick"
                 android:text="@string/reset_label"
                 android:textColor="@android:color/white" />
