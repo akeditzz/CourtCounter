@@ -14,11 +14,11 @@ public class MainActivity extends AppCompatActivity implements Constants {
     private TextView tv_point_team_a, tv_point_team_b, tv_fauls_team_a, tv_fauls_team_b;
     private int scoreTeamA = 0, scoreTeamB = 0;
     private int faulsTeamA = 0, faulsTeamB = 0;
-    boolean isFaulA = false, isFaulB = false;
-    private boolean advanceTeamA = false;
-    private boolean advanceTeamB = false;
-    private boolean teamAWin = false;
-    private boolean teamBWin = false;
+    boolean isFaulA = false, isFaulB = false; //to maintain score according to continuous 2 fauls
+    private boolean advanceTeamA = false; // to maintain if team a is advance
+    private boolean advanceTeamB = false; // to maintain if team b is advance
+    private boolean teamAWin = false; // flag if team a wins
+    private boolean teamBWin = false; // flag if team b wins
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
