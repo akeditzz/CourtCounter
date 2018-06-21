@@ -11,14 +11,20 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements Constants {
 
     //views and variables declaration
-    private TextView tv_point_team_a, tv_point_team_b, tv_fauls_team_a, tv_fauls_team_b;
-    private int scoreTeamA = 0, scoreTeamB = 0;
-    private int faulsTeamA = 0, faulsTeamB = 0;
-    boolean isFaulA = false, isFaulB = false; //to maintain score according to continuous 2 fauls
-    private boolean advanceTeamA = false; // to maintain if team a is advance
-    private boolean advanceTeamB = false; // to maintain if team b is advance
-    private boolean teamAWin = false; // flag if team a wins
-    private boolean teamBWin = false; // flag if team b wins
+    private TextView tv_point_team_a;
+    private TextView tv_point_team_b;
+    private TextView tv_fauls_team_a;
+    private TextView tv_fauls_team_b;
+    private int scoreTeamA; // to store score of team a
+    private int scoreTeamB; // to store score of team b
+    private int faulsTeamA; // to store fauls of team a
+    private int faulsTeamB; // to store fauls of team b
+    private boolean isFaulA; //to maintain score according to continuous 2 fauls
+    private boolean isFaulB; //to maintain score according to continuous 2 fauls
+    private boolean advanceTeamA; // to maintain if team a is advance
+    private boolean advanceTeamB; // to maintain if team b is advance
+    private boolean teamAWin; // flag if team a wins
+    private boolean teamBWin; // flag if team b wins
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
